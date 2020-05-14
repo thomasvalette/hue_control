@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Hue Control</title>
+    <meta name="description" content="Hue Control Page">
+    <meta name="author" content="Pampal">
+
+    <link rel="icon" 
+          type="image/png" 
+          href="{{ url_for('static', filename='img/favicon/x128.png') }}" />
+
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+</head>
+
+<body>
+    <div class="lights_list">
+    {% for lightid, lightinfo in lights.items() %}
+        <div class="light">
+            <div class="light_state" id="light_{{lightid }}">
+                <img src="{{ url_for('static', filename='img/icons/bulb.svg') }}">
+            </div>
+            {{lightinfo['name']}}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="quick_control_list">
+        <div class="quick_control">
+            <div class="quick_control_icon" id="on_off">
+                <img src="{{ url_for('static', filename='img/icons/onoff.svg') }}">
+            </div>
+            ON / OFF
+        </div>
+        <div class="quick_control">
+            <div></div>
+        </div>
+        <div class="quick_control">
+            <div class="quick_control_icon" id="jour">
+            </div>
+            Journée
+        </div>
+        <div class="quick_control">
+            <div class="quick_control_icon" id="stim">
+            </div>
+            Stimulation
+        </div>
+        <div class="quick_control">
+            <div class="quick_control_icon" id="soir">
+            </div>
+            Soirée
+        </div>
+        <div class="quick_control">
+            <div class="quick_control_icon" id="veille">
+            </div>
+            Veilleuse
+        </div>
+    </div>
+    <div class="colorPicker" id="color-picker-container"></div>
+    <button id="test" style="display:none">TEST</button>
+    {# SCRIPTS #}
+    <script src="{{ url_for('static', filename='js/iro.min.js') }}" 
+            type="text/javascript" 
+            charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}" 
+            type="module"
+            charset="utf-8"></script>
+</body>
+</html>
