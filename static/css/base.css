@@ -30,6 +30,7 @@ body {
     flex-direction: column;
     overflow: scroll;
     height:100vh;
+    scrollbar-width: None;
 }
 
 .light {
@@ -67,6 +68,7 @@ body {
     flex-direction: column;
     overflow: scroll;
     height:100vh;
+    scrollbar-width: None;
 }
 
 .quick_control {
